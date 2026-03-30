@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitud Enviada - BaldeCash Gaming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Baloo+2:wght@400;500;600;700;800&family=Asap:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+:root {
+  --bg-darkest: #0e0e0e;
+  --bg-dark: #141414;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #242424;
+  --bg-surface: #1e1e1e;
+  --bg-elevated: #282828;
+  --neon-cyan: #00ffd5;
+  --neon-purple: #6366f1;
+  --neon-green: #00ff7f;
+  --neon-red: #ff0055;
+  --neon-orange: #ff8800;
+  --neon-blue: #00aaff;
+  --primary-brand: #6366f1;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --border: #2a2a2a;
+  --gradient-cyber: linear-gradient(135deg, #6366f1 0%, #82e2d2 100%);
+  --radius: 12px;
+}
+
+[data-theme="light"] {
+  --bg-darkest: #f2f2f2;
+  --bg-dark: #eaeaea;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f7f7f7;
+  --bg-surface: #f5f5f5;
+  --bg-elevated: #eeeeee;
+  --neon-cyan: #00b396;
+  --neon-purple: #4f46e5;
+  --primary-brand: #4f46e5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --border: #e0e0e0;
+  --gradient-cyber: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%);
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg-darkest);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: 40px;
+}
+
+/* ===== TOP BANNER ===== */
+.top-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: linear-gradient(to right, var(--neon-purple), var(--neon-purple)); color: #fff; text-align: center; padding: 10px 16px; font-size: 14px; }
+.top-banner-inner { max-width: 1152px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 8px; position: relative; }
+.top-banner .zap-icon { width: 16px; height: 16px; color: var(--neon-cyan); flex-shrink: 0; }
+.top-banner a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; margin-left: 8px; }
+.top-banner .close-btn { position: absolute; right: 0; padding: 6px; background: none; border: none; color: #fff; cursor: pointer; border-radius: 50%; }
+.top-banner .close-btn svg { width: 16px; height: 16px; }
+
+/* ===== HEADER ===== */
+.header { position: sticky; top: 40px; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; height: 64px; background: rgba(14,14,14,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.badge-nuevo { position: absolute; top: -10px; right: -8px; font-size: 10px; font-weight: 700; color: #fff; background: var(--neon-cyan); padding: 0 4px; border-radius: 4px; line-height: 16px; }
+.theme-toggle { width: 40px; height: 40px; border-radius: 10px; background: var(--bg-surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; color: #ffffff; position: relative; }
+.theme-toggle:hover { border-color: var(--neon-purple); color: var(--neon-purple); }
+.theme-toggle .icon-sun, .theme-toggle .icon-moon { width: 18px; height: 18px; transition: opacity 0.3s, transform 0.3s; position: absolute; }
+.theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+.theme-toggle .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+[data-theme="light"] .header-nav a { color: #333; }
+[data-theme="light"] .theme-toggle { color: #555; }
+.header-nav a { font-size: 14px; font-weight: 400; color: #ffffff; text-decoration: none; transition: color 0.2s; }
+.header-nav a:hover { color: var(--neon-purple); }
+.header-left { display: flex; align-items: center; }
+.logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.logo-img { height: 36px; object-fit: contain; }
+.logo .gaming-tag { font-family: 'Share Tech Mono', monospace; font-size: 8px; color: var(--neon-red); background: rgba(255,32,64,0.08); border: 1px solid rgba(255,32,64,0.25); padding: 2px 6px; border-radius: 4px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.zona-estudiantes { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--neon-purple); padding: 6px 14px; border-radius: 8px; background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.12); transition: all 0.2s; text-decoration: none; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.hamburger-btn { display: none; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-secondary); align-items: center; justify-content: center; cursor: pointer; }
+@media (max-width: 768px) { .header-nav { display: none; } .hamburger-btn { display: flex; } }
+.mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: rgba(12,12,12,0.98); border-top: 1px solid var(--border); padding: 16px; backdrop-filter: blur(20px); }
+.mobile-menu.open { display: block; }
+.mobile-menu a { display: block; padding: 12px 0; color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 600; border-bottom: 1px solid var(--border); }
+.mobile-menu a:last-child { border-bottom: none; }
+[data-theme="light"] .header { background: rgba(255,255,255,0.92); border-bottom: 1px solid #e0e0e0; }
+[data-theme="light"] .mobile-menu { background: rgba(255,255,255,0.98); }
+
+/* ===== FOOTER ===== */
+.site-footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:0 24px;position:relative}
+.site-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--gradient-cyber);opacity:0.3}
+.footer-inner{max-width:1152px;margin:0 auto;padding:48px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+.footer-brand img{height:32px;object-fit:contain;margin-bottom:16px}
+.footer-brand p{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+.footer-socials{display:flex;gap:10px}
+.social-circle{width:34px;height:34px;border-radius:50%;background:var(--bg-surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);text-decoration:none;transition:all 0.3s}
+.social-circle:hover{background:var(--primary-brand);border-color:var(--primary-brand);color:white}
+.social-circle svg{width:16px;height:16px}
+.footer-col h4{font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--neon-cyan);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s}
+.footer-col a:hover{color:var(--neon-cyan)}
+.footer-bottom{border-top:1px solid var(--border);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.footer-bottom p{font-size:12px;color:var(--text-muted)}
+.footer-bottom .sbs{font-size:11px;color:rgba(85,85,119,0.6)}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.footer-brand{grid-column:1/-1}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"] .bg-white { background: var(--bg-card) !important; }
+[data-theme="dark"] .text-neutral-800 { color: var(--text-primary) !important; }
+[data-theme="dark"] .text-neutral-700 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .text-neutral-600 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .text-neutral-500 { color: var(--text-muted) !important; }
+[data-theme="dark"] .text-neutral-400 { color: var(--text-muted) !important; }
+[data-theme="dark"] .border-neutral-200 { border-color: var(--border) !important; }
+[data-theme="dark"] .border-neutral-300 { border-color: var(--border) !important; }
+[data-theme="dark"] .border-neutral-100 { border-color: var(--border) !important; }
+[data-theme="dark"] .bg-neutral-50 { background: var(--bg-surface) !important; }
+[data-theme="dark"] .bg-neutral-100 { background: var(--bg-elevated) !important; }
+[data-theme="dark"] .shadow-sm { box-shadow: 0 1px 4px rgba(0,0,0,0.3) !important; }
+[data-theme="dark"] .shadow-lg { box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
+
+[data-theme="dark"] .text-\[\#4654CD\] { color: var(--neon-cyan) !important; }
+[data-theme="light"] .text-\[\#4654CD\] { color: var(--neon-cyan) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\] { background: var(--neon-cyan) !important; }
+[data-theme="light"] .bg-\[\#4654CD\] { background: var(--neon-cyan) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\]\/5 { background: rgba(0,255,213,0.05) !important; }
+[data-theme="light"] .bg-\[\#4654CD\]\/5 { background: rgba(0,179,150,0.05) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\]\/10 { background: rgba(0,255,213,0.1) !important; }
+[data-theme="light"] .bg-\[\#4654CD\]\/10 { background: rgba(0,179,150,0.1) !important; }
+[data-theme="dark"] .border-\[\#4654CD\]\/10 { border-color: rgba(0,255,213,0.1) !important; }
+[data-theme="light"] .border-\[\#4654CD\]\/10 { border-color: rgba(0,179,150,0.1) !important; }
+[data-theme="dark"] .ring-\[\#4654CD\]\/20 { --tw-ring-color: rgba(0,255,213,0.2) !important; }
+[data-theme="light"] .ring-\[\#4654CD\]\/20 { --tw-ring-color: rgba(0,179,150,0.2) !important; }
+[data-theme="dark"] .ring-\[\#4654CD\]\/30 { --tw-ring-color: rgba(0,255,213,0.3) !important; }
+[data-theme="dark"] .hover\:text-\[\#4654CD\]:hover { color: var(--neon-cyan) !important; }
+[data-theme="light"] .hover\:text-\[\#4654CD\]:hover { color: var(--neon-cyan) !important; }
+[data-theme="dark"] .hover\:text-\[\#3a47b3\]:hover { color: rgba(0,200,170,0.9) !important; }
+[data-theme="light"] .hover\:text-\[\#3a47b3\]:hover { color: rgba(0,150,120,0.9) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\].text-white { background: var(--neon-cyan) !important; color: #000 !important; }
+[data-theme="dark"] .text-\[\#4654CD\].text-xs { color: var(--neon-cyan) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\].rounded-full { background: var(--neon-cyan) !important; }
+[data-theme="dark"] .sticky { background: var(--bg-card) !important; }
+
+/* Success banner */
+.success-banner {
+  background: linear-gradient(135deg, rgba(0,255,213,0.12) 0%, rgba(99,102,241,0.08) 100%);
+  border: 1.5px solid var(--neon-cyan);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.5s ease both;
+}
+@keyframes fadeInDown {
+  from { opacity:0; transform:translateY(-12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.success-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--neon-cyan);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.success-icon svg { color: #000; }
+.success-ref {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: var(--neon-cyan);
+  background: rgba(0,255,213,0.08);
+  border: 1px solid rgba(0,255,213,0.2);
+  padding: 2px 10px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner" id="topBanner">
+  <div class="top-banner-inner">
+    <svg class="zap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+    <span><strong>Oferta especial:</strong> 0% inter&eacute;s en tu primera cuota</span>
+    <a href="#">Ver m&aacute;s</a>
+    <button class="close-btn" onclick="document.getElementById('topBanner').style.display='none'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <a href="BALDECASH LANDING.html" class="logo">
+      <img class="logo-img" src="LOGO BALDE.PNG" alt="BaldeCash">
+      <span class="gaming-tag">GAMING</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    <a href="BALDECASH LANDING.html#catalogo" style="position:relative;">Equipos<span class="badge-nuevo">NUEVO</span></a>
+    <a href="#">Convenios</a>
+    <a href="#">Ver requisitos</a>
+    <a href="#">&iquest;Tienes dudas?</a>
+  </div>
+  <div class="header-right">
+    <a href="#" class="zona-estudiantes">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+      Zona Gamers
+    </a>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
+    <button class="hamburger-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="BALDECASH LANDING.html#catalogo">Equipos</a>
+    <a href="#">Convenios</a>
+    <a href="#">Ver requisitos</a>
+    <a href="#">&iquest;Tienes dudas?</a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main style="background: var(--bg-darkest); min-height: 100vh; padding: 0 0 80px;">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 pt-14 pb-24 lg:pb-8">
+    <div class="lg:grid lg:grid-cols-[1fr_420px] lg:gap-10">
+
+      <!-- LEFT COLUMN -->
+      <div class="max-w-2xl mx-auto lg:mx-0 lg:max-w-none">
+
+        <!-- Mobile step indicator -->
+        <div class="lg:hidden">
+          <div class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-sm border border-neutral-100">
+            <img alt="Baldi" class="w-14 h-14 object-contain flex-shrink-0" src="https://baldecash.s3.amazonaws.com/illustrations/baldi/BALDI_ALEGRE.png">
+            <div class="flex-1 min-w-0">
+              <p class="text-xs text-neutral-500 font-medium">Paso 4 de 4</p>
+              <p class="text-base font-bold text-neutral-800 truncate">Resumen</p>
+              <div class="flex items-center gap-2 mt-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#4654CD]"></div>
+                <div class="flex-1 h-0.5 rounded-full bg-[#4654CD]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#4654CD]"></div>
+                <div class="flex-1 h-0.5 rounded-full bg-[#4654CD]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#4654CD]"></div>
+                <div class="flex-1 h-0.5 rounded-full bg-[#4654CD]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#4654CD] ring-2 ring-[#4654CD]/30"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop step indicator — todos completados -->
+        <div class="hidden lg:flex items-center justify-between mb-8">
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-[#4654CD] text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+            <span class="mt-2 text-xs font-medium text-center max-w-[80px] text-neutral-700">Datos Personales</span>
+          </div>
+          <div class="flex-1 h-1 mx-2 rounded-full bg-[#4654CD]"></div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-[#4654CD] text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+            <span class="mt-2 text-xs font-medium text-center max-w-[80px] text-neutral-700">Datos Acad&eacute;micos</span>
+          </div>
+          <div class="flex-1 h-1 mx-2 rounded-full bg-[#4654CD]"></div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-[#4654CD] text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+            <span class="mt-2 text-xs font-medium text-center max-w-[80px] text-neutral-700">Datos Econ&oacute;micos</span>
+          </div>
+          <div class="flex-1 h-1 mx-2 rounded-full bg-[#4654CD]"></div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-[#4654CD] text-white ring-4 ring-[#4654CD]/20">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+            <span class="mt-2 text-xs font-medium text-center max-w-[80px] text-[#4654CD]">Resumen</span>
+          </div>
+        </div>
+
+        <!-- Mobile product bar -->
+        <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40">
+          <div class="bg-white border-t border-neutral-200 shadow-lg">
+            <div class="w-full px-4 py-3 flex items-center gap-3">
+              <div class="w-12 h-12 bg-neutral-100 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                <img alt="Laptop" class="object-contain w-full h-full" src="https://cdn.prod.website-files.com/62141f21700a64ab3f816206/64ad7929bd7b580e6de7247d_Lenovo%20Chromebook%20S330.jpg">
+              </div>
+              <div class="flex-1 text-left min-w-0">
+                <p class="text-sm font-medium text-neutral-800 truncate">Lenovo V15 G4 Ryzen 5 8GB</p>
+                <p class="text-xs text-neutral-500">24 meses</p>
+              </div>
+              <span class="text-sm font-semibold text-[#4654CD]">S/&nbsp;108/mes</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-400"><path d="m18 15-6-6-6 6"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop product summary -->
+        <div class="hidden lg:block mb-6 space-y-3">
+          <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div class="w-full px-4 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#4654CD]"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+                <p class="text-sm font-semibold text-neutral-800">Productos (1)</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-400"><path d="m18 15-6-6-6 6"></path></svg>
+            </div>
+            <div class="px-4 pt-2 pb-4 border-t border-neutral-100">
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-16 bg-neutral-50 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <img alt="Laptop" class="object-contain w-full h-full" src="https://cdn.prod.website-files.com/62141f21700a64ab3f816206/64ad7929bd7b580e6de7247d_Lenovo%20Chromebook%20S330.jpg">
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs text-neutral-500 uppercase tracking-wide">lenovo</p>
+                  <p class="text-base font-semibold text-neutral-800">Laptop Lenovo 15.6"</p>
+                  <p class="text-sm text-neutral-500 mt-0.5">Ryzen 5 7520U &middot; 8GB RAM &middot; 256GB SSD</p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="text-sm font-bold text-[#4654CD]">S/&nbsp;108/mes</p>
+                  <p class="text-xs text-neutral-500">24 meses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl bg-[#4654CD]/5 border border-[#4654CD]/10">
+            <div class="flex justify-between items-center">
+              <span class="text-sm font-semibold text-neutral-700">Cuota mensual total</span>
+              <span class="text-lg font-bold text-[#4654CD]">S/&nbsp;108/mes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUCCESS BANNER -->
+        <div class="success-banner mt-6">
+          <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+          </div>
+          <div>
+            <p class="font-bold text-lg text-neutral-800" style="font-family:'Rajdhani',sans-serif;">¡Solicitud enviada con &eacute;xito!</p>
+            <p class="text-sm text-neutral-600 mt-1">Revisaremos tu informaci&oacute;n y nos pondremos en contacto contigo en las pr&oacute;ximas <strong>24&ndash;48 horas h&aacute;biles</strong>.</p>
+            <span class="success-ref">REF #BC-2026-74821</span>
+          </div>
+        </div>
+
+        <!-- Form title -->
+        <div class="mb-6">
+          <h1 class="text-2xl font-bold text-neutral-800" style="font-family:'Rajdhani',sans-serif;">Resumen de tu solicitud</h1>
+          <p class="text-neutral-600 mt-1">Estos son los datos que enviaste</p>
+        </div>
+
+        <!-- Summary (read-only, no editar buttons) -->
+        <div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+          <div class="space-y-4">
+
+            <!-- Datos Personales -->
+            <div class="bg-neutral-50 rounded-xl p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#4654CD]"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <h3 class="font-semibold text-neutral-800">Datos Personales</h3>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Nombre completo</span><span class="text-neutral-800 font-medium text-right">Silvana Alvarez</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Documento</span><span class="text-neutral-800 font-medium text-right">DNI 74128230</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Sexo</span><span class="text-neutral-800 font-medium text-right">Femenino</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Fecha de nacimiento</span><span class="text-neutral-800 font-medium text-right">02/02/2005</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Celular</span><span class="text-neutral-800 font-medium text-right">940347219</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Email</span><span class="text-neutral-800 font-medium text-right break-all">silvana.alvarez@baldecash.com</span></div>
+              </div>
+            </div>
+
+            <!-- Datos Académicos -->
+            <div class="bg-neutral-50 rounded-xl p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#4654CD]"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                <h3 class="font-semibold text-neutral-800">Datos Acad&eacute;micos</h3>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Instituci&oacute;n</span><span class="text-neutral-800 font-medium text-right">Pontificia Universidad Cat&oacute;lica del Per&uacute; (Universidad)</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Carrera</span><span class="text-neutral-800 font-medium text-right">Ingenier&iacute;a de Sistemas</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Ciclo</span><span class="text-neutral-800 font-medium text-right">1er Ciclo</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Constancia</span><span class="text-neutral-800 font-medium text-right">Archivo adjunto</span></div>
+              </div>
+            </div>
+
+            <!-- Datos Económicos -->
+            <div class="bg-neutral-50 rounded-xl p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#4654CD]"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>
+                <h3 class="font-semibold text-neutral-800">Datos Econ&oacute;micos</h3>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Situaci&oacute;n laboral</span><span class="text-neutral-800 font-medium text-right">Empleado</span></div>
+                <div class="flex justify-between gap-4 text-sm"><span class="text-neutral-500 flex-shrink-0">Ingreso mensual</span><span class="text-neutral-800 font-medium text-right">S/ 1500</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 mt-8">
+          <button type="button" onclick="window.location.href='baldecash-detalle-1.html'" class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-[#4654CD] text-white rounded-xl font-semibold hover:bg-[#3a47b3] transition-colors shadow-lg shadow-[#4654CD]/25 cursor-pointer" style="font-family:'Rajdhani',sans-serif;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Volver al inicio</span>
+          </button>
+          <button type="button" class="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold border-2 border-neutral-300 text-neutral-700 hover:border-[#4654CD] hover:text-[#4654CD] transition-colors cursor-pointer" style="font-family:'Rajdhani',sans-serif;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            <span>Ver estado de solicitud</span>
+          </button>
+        </div>
+
+        <div class="lg:hidden h-[72px]"></div>
+      </div>
+
+      <!-- RIGHT COLUMN (desktop) -->
+      <div class="hidden lg:block">
+        <div class="sticky top-24">
+          <div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-8 lg:p-10">
+            <div class="mb-6">
+              <h2 class="text-2xl lg:text-3xl font-bold text-neutral-800 leading-tight" style="font-family:'Rajdhani',sans-serif;">
+                &iexcl;Lo lograste, <span class="text-[#4654CD]">Silvana</span>!
+              </h2>
+              <p class="text-neutral-500 text-base italic mt-4">Tu solicitud est&aacute; en revisi&oacute;n. Te avisaremos muy pronto.</p>
+            </div>
+            <div class="flex justify-center mt-8">
+              <img alt="Ilustraci&oacute;n celebraci&oacute;n" class="w-full max-w-[260px] h-auto object-contain" src="https://baldecash.s3.amazonaws.com/illustrations/baldi/BALDI_ALEGRE.png">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img alt="BaldeCash" class="logo-img" src="LOGO BALDE.PNG">
+        <p>Financiamiento para estudiantes</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/baldecash" target="_blank" class="social-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/baldecash/" target="_blank" class="social-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="https://www.tiktok.com/@baldecash" target="_blank" class="social-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Productos</h4><ul><li><a href="#">Equipos</a></li><li><a href="#">Accesorios</a></li><li><a href="#">Seguros</a></li><li><a href="#">Promociones</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#">Sobre nosotros</a></li><li><a href="#">Convenios</a></li><li><a href="#">Trabaja con nosotros</a></li><li><a href="#">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Soporte</h4><ul><li><a href="#">Centro de ayuda</a></li><li><a href="#">FAQ</a></li><li><a href="#">Estado de solicitud</a></li><li><a href="#">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">T&eacute;rminos y condiciones</a></li><li><a href="#">Pol&iacute;tica de privacidad</a></li><li><a href="#">Libro de reclamaciones</a></li><li><a href="#">Regulaci&oacute;n SBS</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Balde K S.A.C. Todos los derechos reservados.</p>
+      <p class="sbs">Empresa supervisada por la SBS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('baldecash-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('baldecash-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>

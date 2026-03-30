@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitud Enviada - BaldeCash Gaming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Baloo+2:wght@400;500;600;700;800&family=Asap:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+:root {
+  --bg-darkest: #0e0e0e;
+  --bg-dark: #141414;
+  --bg-card: #1a1a1a;
+  --bg-surface: #1e1e1e;
+  --bg-elevated: #282828;
+  --neon-cyan: #00ffd5;
+  --neon-purple: #6366f1;
+  --neon-red: #ff0055;
+  --primary-brand: #6366f1;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --border: #2a2a2a;
+  --gradient-cyber: linear-gradient(135deg, #6366f1 0%, #82e2d2 100%);
+}
+
+[data-theme="light"] {
+  --bg-darkest: #f2f2f2;
+  --bg-dark: #eaeaea;
+  --bg-card: #ffffff;
+  --bg-surface: #f5f5f5;
+  --bg-elevated: #eeeeee;
+  --neon-cyan: #00b396;
+  --neon-purple: #4f46e5;
+  --primary-brand: #4f46e5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --border: #e0e0e0;
+  --gradient-cyber: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%);
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg-darkest);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: 40px;
+}
+
+.top-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: var(--neon-purple); color: #fff; text-align: center; padding: 10px 16px; font-size: 14px; }
+.top-banner-inner { max-width: 1152px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 8px; position: relative; }
+.top-banner .zap-icon { width: 16px; height: 16px; color: var(--neon-cyan); flex-shrink: 0; }
+.top-banner a { color: #fff; font-weight: 600; text-decoration: underline; margin-left: 8px; }
+.top-banner .close-btn { position: absolute; right: 0; padding: 6px; background: none; border: none; color: #fff; cursor: pointer; }
+.top-banner .close-btn svg { width: 16px; height: 16px; }
+
+.header { position: sticky; top: 40px; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; height: 64px; background: rgba(14,14,14,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.badge-nuevo { position: absolute; top: -10px; right: -8px; font-size: 10px; font-weight: 700; color: #fff; background: var(--neon-cyan); padding: 0 4px; border-radius: 4px; line-height: 16px; }
+.theme-toggle { width: 40px; height: 40px; border-radius: 10px; background: var(--bg-surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; color: #ffffff; position: relative; }
+.theme-toggle:hover { border-color: var(--neon-purple); }
+.theme-toggle .icon-sun, .theme-toggle .icon-moon { width: 18px; height: 18px; transition: opacity 0.3s, transform 0.3s; position: absolute; }
+.theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+.theme-toggle .icon-moon { opacity: 1; }
+[data-theme="light"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+[data-theme="light"] .header-nav a { color: #333; }
+[data-theme="light"] .theme-toggle { color: #555; }
+.header-nav a { font-size: 14px; color: #fff; text-decoration: none; transition: color 0.2s; }
+.header-nav a:hover { color: var(--neon-purple); }
+.logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.logo-img { height: 36px; object-fit: contain; }
+.logo .gaming-tag { font-family: 'Share Tech Mono', monospace; font-size: 8px; color: var(--neon-red); background: rgba(255,32,64,0.08); border: 1px solid rgba(255,32,64,0.25); padding: 2px 6px; border-radius: 4px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.zona-estudiantes { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--neon-purple); padding: 6px 14px; border-radius: 8px; background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.12); transition: all 0.2s; text-decoration: none; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.hamburger-btn { display: none; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-secondary); align-items: center; justify-content: center; cursor: pointer; }
+@media (max-width: 768px) { .header-nav { display: none; } .hamburger-btn { display: flex; } }
+.mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: rgba(12,12,12,0.98); border-top: 1px solid var(--border); padding: 16px; backdrop-filter: blur(20px); }
+.mobile-menu.open { display: block; }
+.mobile-menu a { display: block; padding: 12px 0; color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 600; border-bottom: 1px solid var(--border); }
+.mobile-menu a:last-child { border-bottom: none; }
+[data-theme="light"] .header { background: rgba(255,255,255,0.92); border-bottom: 1px solid #e0e0e0; }
+[data-theme="light"] .mobile-menu { background: rgba(255,255,255,0.98); }
+
+.site-footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:0 24px;position:relative}
+.site-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--gradient-cyber);opacity:0.3}
+.footer-inner{max-width:1152px;margin:0 auto;padding:48px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+.footer-brand img{height:32px;object-fit:contain;margin-bottom:16px}
+.footer-brand p{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+.footer-socials{display:flex;gap:10px}
+.social-circle{width:34px;height:34px;border-radius:50%;background:var(--bg-surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);text-decoration:none;transition:all 0.3s}
+.social-circle:hover{background:var(--primary-brand);border-color:var(--primary-brand);color:white}
+.social-circle svg{width:16px;height:16px}
+.footer-col h4{font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--neon-cyan);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s}
+.footer-col a:hover{color:var(--neon-cyan)}
+.footer-bottom{border-top:1px solid var(--border);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.footer-bottom p{font-size:12px;color:var(--text-muted)}
+.footer-bottom .sbs{font-size:11px;color:rgba(85,85,119,0.6)}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.footer-brand{grid-column:1/-1}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+
+/* Dark mode */
+[data-theme="dark"] .bg-white { background: var(--bg-card) !important; }
+[data-theme="dark"] .text-neutral-800 { color: var(--text-primary) !important; }
+[data-theme="dark"] .text-neutral-600 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .text-neutral-500 { color: var(--text-muted) !important; }
+[data-theme="dark"] .border-neutral-200 { border-color: var(--border) !important; }
+[data-theme="dark"] .border-neutral-300 { border-color: var(--border) !important; }
+[data-theme="dark"] .bg-neutral-100 { background: var(--bg-elevated) !important; }
+[data-theme="dark"] .bg-neutral-200 { background: var(--bg-elevated) !important; }
+[data-theme="dark"] .text-neutral-700 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .shadow-sm { box-shadow: 0 1px 4px rgba(0,0,0,0.3) !important; }
+[data-theme="dark"] .hover\:shadow-md:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
+
+[data-theme="dark"] .text-\[\#4654CD\] { color: var(--neon-cyan) !important; }
+[data-theme="light"] .text-\[\#4654CD\] { color: var(--neon-cyan) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\] { background: var(--neon-cyan) !important; }
+[data-theme="light"] .bg-\[\#4654CD\] { background: var(--neon-cyan) !important; }
+[data-theme="dark"] .bg-\[\#4654CD\] svg { color: #000 !important; }
+[data-theme="light"] .bg-\[\#4654CD\] svg { color: #000 !important; }
+[data-theme="dark"] .hover\:bg-\[\#4654CD\]:hover { background: var(--neon-cyan) !important; color: #000 !important; }
+[data-theme="light"] .hover\:bg-\[\#4654CD\]:hover { background: var(--neon-cyan) !important; color: #000 !important; }
+
+/* Result cards */
+.result-card {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+}
+.result-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.15); border-color: #d1d5db; transform: translateY(-1px); }
+[data-theme="dark"] .result-card { border-color: var(--border); }
+[data-theme="dark"] .result-card:hover { border-color: var(--border-glow, #3a3a3a); box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+
+.result-card .ver-btn {
+  padding: 8px 16px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.result-card:hover .ver-btn {
+  background: var(--neon-cyan);
+  color: #000;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner" id="topBanner">
+  <div class="top-banner-inner">
+    <svg class="zap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+    <span><strong>Oferta especial:</strong> 0% inter&eacute;s en tu primera cuota</span>
+    <a href="#">Ver m&aacute;s</a>
+    <button class="close-btn" onclick="document.getElementById('topBanner').style.display='none'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div>
+    <a href="BALDECASH LANDING.html" class="logo">
+      <img class="logo-img" src="LOGO BALDE.PNG" alt="BaldeCash">
+      <span class="gaming-tag">GAMING</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    <a href="BALDECASH LANDING.html#catalogo" style="position:relative;">Equipos<span class="badge-nuevo">NUEVO</span></a>
+    <a href="#">Convenios</a>
+    <a href="#">Ver requisitos</a>
+    <a href="#">&iquest;Tienes dudas?</a>
+  </div>
+  <div class="header-right">
+    <a href="#" class="zona-estudiantes">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+      Zona Gamers
+    </a>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
+    <button class="hamburger-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="BALDECASH LANDING.html#catalogo">Equipos</a>
+    <a href="#">Convenios</a>
+    <a href="#">Ver requisitos</a>
+    <a href="#">&iquest;Tienes dudas?</a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main style="background: var(--bg-darkest); min-height: 100vh; padding: 0 0 80px;">
+  <div class="max-w-2xl mx-auto px-4 pt-14 pb-32 lg:pb-16">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <div class="w-16 h-16 bg-[#4654CD] rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+      </div>
+      <h1 class="text-2xl md:text-3xl font-bold text-neutral-800 mb-2" style="font-family:'Rajdhani',sans-serif;">Solicitud Enviada</h1>
+      <p class="text-neutral-600">Selecciona un resultado para ver la pantalla correspondiente</p>
+    </div>
+
+    <!-- Result options -->
+    <div class="space-y-4">
+
+      <!-- Aprobación -->
+      <button class="result-card" onclick="window.location.href='baldecash-aprobacion.html'">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(168,85,247,0.15);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b87aff" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-neutral-800">Aprobaci&oacute;n</h3>
+          <p class="text-sm text-neutral-500">Solicitud aprobada exitosamente</p>
+        </div>
+        <span class="ver-btn">Ver</span>
+      </button>
+
+      <!-- Rechazo -->
+      <button class="result-card" onclick="window.location.href='baldecash-rechazo.html'">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,0,64,0.15);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3366" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-neutral-800">Rechazo</h3>
+          <p class="text-sm text-neutral-500">Solicitud rechazada con alternativas</p>
+        </div>
+        <span class="ver-btn">Ver</span>
+      </button>
+
+      <!-- Recibido -->
+      <button class="result-card" onclick="window.location.href='baldecash-recibido.html'">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(240,160,96,0.15);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f5b070" stroke-width="2"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-neutral-800">Recibido</h3>
+          <p class="text-sm text-neutral-500">Solicitud en revisi&oacute;n (24-48h)</p>
+        </div>
+        <span class="ver-btn">Ver</span>
+      </button>
+
+    </div>
+
+    <!-- Demo note -->
+    <div class="mt-8 p-4 rounded-xl" style="background: var(--bg-elevated);">
+      <p class="text-sm text-neutral-600 text-center">Esta p&aacute;gina es solo para demostraci&oacute;n. En producci&oacute;n, el sistema determinar&aacute; autom&aacute;ticamente el resultado.</p>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img alt="BaldeCash" class="logo-img" src="LOGO BALDE.PNG">
+        <p>Financiamiento para estudiantes</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/baldecash" target="_blank" class="social-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/baldecash/" target="_blank" class="social-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="https://www.tiktok.com/@baldecash" target="_blank" class="social-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Productos</h4><ul><li><a href="#">Equipos</a></li><li><a href="#">Accesorios</a></li><li><a href="#">Seguros</a></li><li><a href="#">Promociones</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#">Sobre nosotros</a></li><li><a href="#">Convenios</a></li><li><a href="#">Trabaja con nosotros</a></li><li><a href="#">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Soporte</h4><ul><li><a href="#">Centro de ayuda</a></li><li><a href="#">FAQ</a></li><li><a href="#">Estado de solicitud</a></li><li><a href="#">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">T&eacute;rminos y condiciones</a></li><li><a href="#">Pol&iacute;tica de privacidad</a></li><li><a href="#">Libro de reclamaciones</a></li><li><a href="#">Regulaci&oacute;n SBS</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Balde K S.A.C. Todos los derechos reservados.</p>
+      <p class="sbs">Empresa supervisada por la SBS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('baldecash-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('baldecash-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
