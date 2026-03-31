@@ -1,7 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(grep -rn \"logo\\\\|LOGO\" *.html)",
+      "Bash(grep -rn 'src=\"\"LOGO BALDE\\\\.PNG\"\"\\\\|src=\"\"solo logo\\\\.png\"\"' *.html)",
+      "Bash(python3 -c \":*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(done)",
+      "Bash(wc -l *.html)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/USER/Desktop/Zona gamer/baldecash-zonagamer/**)",
+      "Bash(grep -v \"^//\")",
+      "Bash(grep -h \"name=\"\"\\\\|placeholder=\"\"\\\\|<label\\\\|<h[1-3]\" baldecash-formulario*.html)",
+      "Bash(ls -lh *.html)",
+      "Bash(ls:*)",
+      "Bash(python3:*)"
     ]
   }
 }

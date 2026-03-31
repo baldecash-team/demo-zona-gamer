@@ -152,7 +152,11 @@ body::before {
   display: flex; align-items: center; gap: 8px;
   text-decoration: none;
 }
-.logo-img { height: 36px; object-fit: contain; }
+.logo-img { height: 25px; object-fit: contain; }
+.logo-img.logo-light { display: none; }
+.logo-img.logo-dark { display: block; }
+[data-theme="light"] .logo-img.logo-dark { display: none; }
+[data-theme="light"] .logo-img.logo-light { display: block; }
 .logo .gaming-tag {
   font-family: 'Share Tech Mono', monospace;
   font-size: 8px; color: var(--neon-red);
@@ -1875,6 +1879,8 @@ body::before {
   backdrop-filter: blur(8px); box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 .card-action-btn:hover { background: rgba(0,255,213,0.1); color: var(--neon-cyan); box-shadow: 0 0 12px rgba(0,255,213,0.2); }
+[data-theme="light"] .card-action-btn { background: rgba(255,255,255,0.9); color: #555; border: 1.5px solid rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+[data-theme="light"] .card-action-btn:hover { background: #fff; color: var(--neon-cyan); border-color: var(--neon-cyan); }
 
 /* Card body */
 .card-body { padding: 16px 16px 0; flex: 1; display: flex; flex-direction: column; text-align: center; }
@@ -4126,7 +4132,8 @@ body::before {
 <header class="header">
   <div class="header-left">
     <a href="#" class="logo">
-      <img class="logo-img" src="LOGO BALDE.PNG" alt="BaldeCash">
+      <img class="logo-img logo-dark" src="logo balde negro.png" alt="BaldeCash">
+<img class="logo-img logo-light" src="logo balde blanco.png" alt="BaldeCash">
       <span class="gaming-tag">GAMING</span>
     </a>
   </div>
@@ -4592,7 +4599,8 @@ body::before {
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img alt="BaldeCash" class="logo-img" src="LOGO BALDE.PNG">
+        <img class="logo-img logo-dark" src="logo balde negro.png" alt="BaldeCash">
+<img class="logo-img logo-light" src="logo balde blanco.png" alt="BaldeCash">
         <p>Financiamiento para estudiantes</p>
         <div class="footer-socials">
           <a href="https://www.facebook.com/baldecash" target="_blank" class="social-circle" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -4705,11 +4713,164 @@ const products = [
     ],
     oldPrice:"S/459", discount:null, price:"383", sub:"24 meses · inicial S/0",
     tier:"alta", type:"laptop", screen:"15.6", res:"fhd", panel:"ips", ram:"16", storage:"1000", cpu:"ryzen7", gpu:"rtx4050", refresh:"144", uso:["gaming","estudios","oficina","diseño","programacion"], condition:"nuevo"
+  },
+  {
+    name: 'ASUS TUF Gaming F16 FX607VU-RL048',
+    brand: "asus",
+    badges: ["mas-vendido"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/ASUS TUF FX607VU-RL048 DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/ASUS TUF FX607VU-RL048 LIGHT.png",
+    colors: [{hex:"#2d2d2d",name:"Graphite Black",active:true}],
+    specs: [
+      {icon:"cpu",text:"Intel Core 5 210H"},
+      {icon:"ram",text:"16GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 4050 6GB"},
+      {icon:"monitor",text:'16" WUXGA 144Hz IPS'}
+    ],
+    oldPrice:"S/349", discount:null, price:"289", sub:"24 meses · inicial S/0",
+    tier:"alta", type:"laptop", screen:"16", res:"wuxga", panel:"ips", ram:"16", storage:"512", cpu:"core5", gpu:"rtx4050", refresh:"144", uso:["gaming","estudios","oficina"], condition:"nuevo"
+  },
+  {
+    name: 'ASUS TUF Gaming F16 FX607VJB-RL209',
+    brand: "asus",
+    badges: ["cuota-baja"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/ASUS TUF FX607VJB-RL209 DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/ASUS TUF FX607VJB-RL209 LIGHT.png",
+    colors: [{hex:"#1a1a2e",name:"Onyx Grey",active:true},{hex:"#B0B0B0",name:"Arctic Grey"}],
+    specs: [
+      {icon:"cpu",text:"Intel Core 5"},
+      {icon:"ram",text:"8GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 3050 6GB"},
+      {icon:"monitor",text:'16" WUXGA IPS'}
+    ],
+    oldPrice:"S/299", discount:null, price:"249", sub:"24 meses · inicial S/0",
+    tier:"media", type:"laptop", screen:"16", res:"wuxga", panel:"ips", ram:"8", storage:"512", cpu:"core5", gpu:"rtx3050", refresh:"144", uso:["gaming","estudios","oficina"], condition:"nuevo"
+  },
+  {
+    name: 'ASUS F16 FX608JH-RV010',
+    brand: "asus",
+    badges: ["recomendado"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/asus f16 fx608JH-RV010 DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/asus f16 fx608JH-RV010 LIGHT.png",
+    colors: [{hex:"#1a1a1a",name:"Obsidian Black",active:true}],
+    specs: [
+      {icon:"cpu",text:"Intel Core i5"},
+      {icon:"ram",text:"16GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 4050 8GB"},
+      {icon:"monitor",text:'16" IPS'}
+    ],
+    oldPrice:"S/399", discount:null, price:"329", sub:"24 meses · inicial S/0",
+    tier:"alta", type:"laptop", screen:"16", res:"wuxga", panel:"ips", ram:"16", storage:"512", cpu:"i5", gpu:"rtx4050", refresh:"144", uso:["gaming","estudios","oficina","programacion"], condition:"nuevo"
+  },
+  {
+    name: 'ASUS G614PM-RV127W',
+    brand: "asus",
+    badges: ["oferta"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/rog g614pm-rv127w DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/rog g614pm-rv127w LIGHT.png",
+    colors: [{hex:"#1a1a1a",name:"Black",active:true}],
+    specs: [
+      {icon:"cpu",text:"Ryzen 9"},
+      {icon:"ram",text:"16GB DDR5"},
+      {icon:"hdd",text:"1TB SSD"},
+      {icon:"gpu",text:"RTX 5060"},
+      {icon:"monitor",text:'16" IPS'}
+    ],
+    oldPrice:"S/539", discount:null, price:"449", sub:"24 meses · inicial S/0",
+    tier:"alta", type:"laptop", screen:"16", res:"wqxga", panel:"ips", ram:"16", storage:"1000", cpu:"ryzen9", gpu:"rtx5060", refresh:"240", uso:["gaming","estudios","oficina","diseño","programacion"], condition:"nuevo"
+  },
+  {
+    name: 'VICTUS 15-fb3020la',
+    brand: "hp",
+    badges: ["recomendado","mas-vendido"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/HP Victus 15-fb3020la_3021LA DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/HP Victus 15-fb3020la_3021LA LIGHT.png",
+    colors: [{hex:"#0a0a0a",name:"Eclipse Gray",active:true},{hex:"#1a1a3e",name:"Volt Green"}],
+    specs: [
+      {icon:"cpu",text:"Ryzen 7"},
+      {icon:"ram",text:"16GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 3050"},
+      {icon:"monitor",text:'15.6" FHD 144Hz IPS'}
+    ],
+    oldPrice:"S/489", discount:null, price:"409", sub:"24 meses · inicial S/0",
+    tier:"alta", type:"laptop", screen:"15.6", res:"fhd", panel:"ips", ram:"16", storage:"512", cpu:"ryzen7", gpu:"rtx3050", refresh:"144", uso:["gaming","estudios","oficina","diseño","programacion"], condition:"nuevo"
+  },
+  {
+    name: 'VICTUS 15-fb3021la',
+    brand: "hp",
+    badges: ["mas-vendido"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/HP Victus 15-fb3020la_3021LA DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/HP Victus 15-fb3020la_3021LA LIGHT.png",
+    colors: [{hex:"#1a1a2e",name:"Storm Grey",active:true},{hex:"#f5f5f5",name:"Cloud Grey"}],
+    specs: [
+      {icon:"cpu",text:"Ryzen 7"},
+      {icon:"ram",text:"16GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 4050"},
+      {icon:"monitor",text:'15.6" FHD IPS'}
+    ],
+    oldPrice:"S/549", discount:null, price:"459", sub:"24 meses · inicial S/0",
+    tier:"alta", type:"laptop", screen:"15.6", res:"fhd", panel:"ips", ram:"16", storage:"512", cpu:"ryzen7", gpu:"rtx4050", refresh:"144", uso:["gaming","estudios","oficina","diseño","programacion"], condition:"nuevo"
+  },
+  {
+    name: 'HP Victus 15-FB3019LA',
+    brand: "hp",
+    badges: ["cuota-baja"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/hp victus 15-fb3019LA DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/hp victus 15-fb3019LA LIGHT.png",
+    colors: [{hex:"#C0C0C0",name:"Natural Silver",active:true},{hex:"#1a1a1a",name:"Jet Black"}],
+    specs: [
+      {icon:"cpu",text:"Ryzen 7"},
+      {icon:"ram",text:"8GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 3050"},
+      {icon:"monitor",text:'15.6" FHD IPS'}
+    ],
+    oldPrice:"S/259", discount:null, price:"215", sub:"24 meses · inicial S/0",
+    tier:"media", type:"laptop", screen:"15.6", res:"fhd", panel:"ips", ram:"8", storage:"512", cpu:"ryzen7", gpu:"rtx3050", refresh:"144", uso:["gaming","estudios","oficina"], condition:"nuevo"
+  },
+  {
+    name: 'Lenovo LOQ 15ARP9',
+    brand: "lenovo",
+    badges: ["recomendado","mas-vendido"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/lenovo loq 15arp9 DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/lenovo loq 15arp9 LIGHT.png",
+    colors: [{hex:"#0a0a0a",name:"Abyssal Black",active:true}],
+    specs: [
+      {icon:"cpu",text:"Ryzen 5"},
+      {icon:"ram",text:"8GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 3050"},
+      {icon:"monitor",text:'15.6" FHD IPS'}
+    ],
+    oldPrice:"S/569", discount:null, price:"475", sub:"24 meses · inicial S/0",
+    tier:"media", type:"laptop", screen:"15.6", res:"fhd", panel:"ips", ram:"8", storage:"512", cpu:"ryzen5", gpu:"rtx3050", refresh:"144", uso:["gaming","estudios","oficina"], condition:"nuevo"
+  },
+  {
+    name: 'Lenovo LOQ 15IAX9',
+    brand: "lenovo",
+    badges: ["recomendado"],
+    imgDark: "PACKS GAMER y VIDEOJUEGOS/LOQ 15IAX9 lenovo DARK.png",
+    imgLight: "PACKS GAMER y VIDEOJUEGOS/LOQ 15IAX9 lenovo LIGHT.png",
+    colors: [{hex:"#1a1a1a",name:"Storm Grey",active:true}],
+    specs: [
+      {icon:"cpu",text:"Intel Core i5"},
+      {icon:"ram",text:"16GB DDR5"},
+      {icon:"hdd",text:"512GB SSD"},
+      {icon:"gpu",text:"RTX 4050"},
+      {icon:"monitor",text:'15.6" FHD IPS'}
+    ],
+    oldPrice:"S/419", discount:null, price:"349", sub:"24 meses · inicial S/0",
+    tier:"alta", type:"laptop", screen:"15.6", res:"fhd", panel:"ips", ram:"16", storage:"512", cpu:"i5", gpu:"rtx4050", refresh:"144", uso:["gaming","estudios","oficina","programacion"], condition:"nuevo"
   }
 ];
 
 // Pagination state
-const PRODUCTS_PER_PAGE = 3;
+const PRODUCTS_PER_PAGE = 12;
 let currentPage = 1;
 
 // ===== PACK FEATURED CARD IN GRID =====
@@ -4900,15 +5061,12 @@ function renderCard(p, idx) {
         </div>
         ${p.imgDark ? `<img class="card-main-img logo-dark" src="${p.imgDark}" alt="${p.name}"><img class="card-main-img logo-light" src="${p.imgLight || p.imgDark}" alt="${p.name}">` : `<div class="img-placeholder">${deviceEmoji}</div>`}
         ${p.imgDark ? "" : '<div class="imagen-referencial">Imagen referencial</div>'}
-        ${p.imgDark ? "" : '<div class="card-thumbs"><div class="card-thumb active">◻</div><div class="card-thumb">◻</div><div class="card-thumb">◻</div><div class="card-thumb">◻</div></div>'}
         <div class="card-brand-overlay">
           <div class="brand-name">${p.brand}</div>
           <div class="product-name">${p.name}</div>
         </div>
       </div>
       <div class="card-body">
-        <div class="color-options">${colorsHtml}</div>
-        <div class="color-name">${colorName || '&nbsp;'}</div>
         <div class="card-specs">${specsHtml}</div>
         <div class="card-price-box">
           <div class="price-top">${priceTop}</div>
@@ -4920,7 +5078,7 @@ function renderCard(p, idx) {
         </div>
       </div>
       <div class="card-footer">
-        ${idx < 4 ? `<a href="baldecash-detalle-${idx+1}.html" class="btn-detalle" style="text-decoration:none">${ICONS.eye} Detalle</a>` : `<button class="btn-detalle">${ICONS.eye} Detalle</button>`}
+        <a href="baldecash-detalle-1.html" class="btn-detalle" style="text-decoration:none">${ICONS.eye} Detalle</a>
         <button class="btn-loquiero">Lo quiero ${ICONS.arrowRight}</button>
       </div>
     </div>`;
@@ -7232,7 +7390,13 @@ function toggleTheme() {
 (function() {
   try {
     var saved = localStorage.getItem('baldecash-theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      if (saved === 'light') {
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+      }
+    }
   } catch(e) {}
 })();
 </script>

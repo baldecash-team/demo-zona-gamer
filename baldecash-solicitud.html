@@ -110,7 +110,15 @@ body {
 .header-nav a:hover { color: var(--neon-purple); }
 .header-left { display: flex; align-items: center; }
 .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-.logo-img { height: 36px; object-fit: contain; }
+.logo-img { height: 25px; object-fit: contain; }
+.logo-img.logo-light { display: none; }
+.logo-img.logo-dark { display: block; }
+[data-theme="light"] .logo-img.logo-dark { display: none; }
+[data-theme="light"] .logo-img.logo-light { display: block; }
+.acc-dark { display: block; }
+.acc-light { display: none; }
+[data-theme="light"] .acc-dark { display: none; }
+[data-theme="light"] .acc-light { display: block; }
 .logo .gaming-tag { font-family: 'Share Tech Mono', monospace; font-size: 8px; color: var(--neon-red); background: rgba(255,32,64,0.08); border: 1px solid rgba(255,32,64,0.25); padding: 2px 6px; border-radius: 4px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
 .header-nav { display: flex; align-items: center; gap: 28px; }
 .zona-estudiantes { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--neon-purple); padding: 6px 14px; border-radius: 8px; background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.12); transition: all 0.2s; text-decoration: none; }
@@ -228,7 +236,8 @@ body {
 <header class="header">
   <div class="header-left">
     <a href="index.html" class="logo">
-      <img class="logo-img" src="LOGO BALDE.PNG" alt="BaldeCash">
+      <img class="logo-img logo-dark" src="logo balde negro.png" alt="BaldeCash">
+<img class="logo-img logo-light" src="logo balde blanco.png" alt="BaldeCash">
       <span class="gaming-tag">GAMING</span>
     </a>
   </div>
@@ -346,112 +355,173 @@ body {
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <!-- Mouse -->
+        <!-- Razer Kraken V3 -->
         <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
           <div class="flex justify-between items-start mb-3">
-            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Popular</span>
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Auriculares</span>
             <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
             </div>
           </div>
           <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
-            <img alt="Mouse inal&aacute;mbrico Logitech M170" class="max-h-20 max-w-full object-contain" loading="lazy" src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop">
+            <img alt="Razer Kraken V3" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="ACCESORIOS GENERAL/2.png"><img alt="Razer Kraken V3" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="ACCESORIOS GENERAL/Razer Kraken V3.png">
           </div>
-          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Mouse inal&aacute;mbrico Logitech M170</h4>
-          <p class="text-xs text-neutral-500 mb-2">Mouse ergon&oacute;mico con hasta 12 meses de bater&iacute;a. Conexi&oacute;n USB plug-and-play.</p>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer Kraken V3</h4>
+          <p class="text-xs text-neutral-500 mb-2">Auriculares gaming con sonido envolvente 7.1 y micrófono desmontable.</p>
           <div class="mt-auto flex items-center justify-between">
-            <span class="text-[#4654CD] font-bold">+S/4/mes</span>
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
             <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </div>
         </button>
 
-        <!-- Funda -->
-        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 3)">
-          <div class="flex justify-between items-start mb-3">
-            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Popular</span>
-            <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
-            </div>
-          </div>
-          <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
-            <img alt="Funda protectora 15.6&quot;" class="max-h-20 max-w-full object-contain" loading="lazy" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop">
-          </div>
-          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Funda protectora 15.6"</h4>
-          <p class="text-xs text-neutral-500 mb-2">Protecci&oacute;n contra golpes y salpicaduras. Material resistente con acolchado interno.</p>
-          <div class="mt-auto flex items-center justify-between">
-            <span class="text-[#4654CD] font-bold">+S/3/mes</span>
-            <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
-          </div>
-        </button>
-
-        <!-- Audífonos -->
+        <!-- Razer Kraken V4 -->
         <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
           <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Auriculares</span>
             <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
             </div>
           </div>
           <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
-            <img alt="Aud&iacute;fonos con micr&oacute;fono USB" class="max-h-20 max-w-full object-contain" loading="lazy" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop">
+            <img alt="Razer Kraken V4" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="accesorios gamer - imagenes/8.png"><img alt="Razer Kraken V4" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="accesorios gamer - imagenes/7.png">
           </div>
-          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Aud&iacute;fonos con micr&oacute;fono USB</h4>
-          <p class="text-xs text-neutral-500 mb-2">Ideal para clases virtuales y videollamadas. Cancelaci&oacute;n de ruido pasiva.</p>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer Kraken V4</h4>
+          <p class="text-xs text-neutral-500 mb-2">Audio inmersivo con drivers TriForce de 50mm y micrófono HyperClear.</p>
           <div class="mt-auto flex items-center justify-between">
-            <span class="text-[#4654CD] font-bold">+S/4/mes</span>
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
             <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </div>
         </button>
 
-        <!-- Hub USB-C -->
-        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 6)">
+        <!-- Razer DeathAdder Essential Black -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
           <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Mouse</span>
             <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
             </div>
           </div>
           <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
-            <img alt="Hub USB-C 7 en 1" class="max-h-20 max-w-full object-contain" loading="lazy" src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&h=400&fit=crop">
+            <img alt="Razer DeathAdder Essential Black" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="ACCESORIOS GENERAL/6.png"><img alt="Razer DeathAdder Essential Black" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="ACCESORIOS GENERAL/Razer DeathAdder Essential Black.png">
           </div>
-          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Hub USB-C 7 en 1</h4>
-          <p class="text-xs text-neutral-500 mb-2">HDMI, USB 3.0, lector SD, puerto Ethernet. Expande la conectividad de tu laptop.</p>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer DeathAdder Essential Black</h4>
+          <p class="text-xs text-neutral-500 mb-2">Mouse gaming ergonómico con sensor óptico de 6400 DPI.</p>
           <div class="mt-auto flex items-center justify-between">
-            <span class="text-[#4654CD] font-bold">+S/6/mes</span>
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
             <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </div>
         </button>
 
-        <!-- Base enfriadora -->
-        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 3)">
+        <!-- Razer Basilisk V3 Chroma -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
           <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Mouse</span>
             <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
             </div>
           </div>
           <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
-            <img alt="Base enfriadora con ventiladores" class="max-h-20 max-w-full object-contain" loading="lazy" src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=400&fit=crop">
+            <img alt="Razer Basilisk V3 Chroma" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="accesorios gamer - imagenes/2.png"><img alt="Razer Basilisk V3 Chroma" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="accesorios gamer - imagenes/1.png">
           </div>
-          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Base enfriadora con ventiladores</h4>
-          <p class="text-xs text-neutral-500 mb-2">2 ventiladores silenciosos. &Aacute;ngulo ajustable para mejor ergonom&iacute;a.</p>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer Basilisk V3 Chroma</h4>
+          <p class="text-xs text-neutral-500 mb-2">Mouse gaming con sensor Focus Pro 26K, scroll inteligente y Chroma RGB.</p>
           <div class="mt-auto flex items-center justify-between">
-            <span class="text-[#4654CD] font-bold">+S/3/mes</span>
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
             <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </div>
         </button>
 
-        <!-- SSD Externo -->
-        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 8)">
+        <!-- Razer Sphex -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
           <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Pad Mouse</span>
             <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
             </div>
           </div>
           <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
-            <img alt="SSD Externo 500GB USB 3.0" class="max-h-20 max-w-full object-contain" loading="lazy" src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=400&fit=crop">
+            <img alt="Razer Sphex" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="ACCESORIOS GENERAL/Razer Sphex (2).png"><img alt="Razer Sphex" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="ACCESORIOS GENERAL/Razer Sphex.png">
           </div>
-          <h4 class="font-semibold text-sm text-neutral-800 mb-1">SSD Externo 500GB USB 3.0</h4>
-          <p class="text-xs text-neutral-500 mb-2">Almacenamiento port&aacute;til ultrarr&aacute;pido. Ideal para backups y archivos grandes.</p>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer Sphex</h4>
+          <p class="text-xs text-neutral-500 mb-2">Pad mouse ultrafino con superficie optimizada para sensores gaming.</p>
           <div class="mt-auto flex items-center justify-between">
-            <span class="text-[#4654CD] font-bold">+S/8/mes</span>
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
+            <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          </div>
+        </button>
+
+        <!-- Razer Firefly V2 Pro -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
+          <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Pad Mouse</span>
+            <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+          </div>
+          <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
+            <img alt="Razer Firefly V2 Pro" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="accesorios gamer - imagenes/6.png"><img alt="Razer Firefly V2 Pro" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="accesorios gamer - imagenes/5.png">
+          </div>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer Firefly V2 Pro</h4>
+          <p class="text-xs text-neutral-500 mb-2">Pad mouse con iluminación Chroma RGB de borde completo y superficie micro-texturizada.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
+            <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          </div>
+        </button>
+
+        <!-- Teros TE-4072G RGB -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
+          <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Teclado</span>
+            <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+          </div>
+          <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
+            <img alt="Teros TE-4072G RGB" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="ACCESORIOS GENERAL/14.png"><img alt="Teros TE-4072G RGB" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="ACCESORIOS GENERAL/Teros TE-4072G RGB.png">
+          </div>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Teros TE-4072G RGB</h4>
+          <p class="text-xs text-neutral-500 mb-2">Teclado gaming con iluminación RGB y diseño compacto.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
+            <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          </div>
+        </button>
+
+        <!-- Razer BlackWidow V3 -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
+          <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Teclado</span>
+            <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+          </div>
+          <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
+            <img alt="Razer BlackWidow V3" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="accesorios gamer - imagenes/4.png"><img alt="Razer BlackWidow V3" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="accesorios gamer - imagenes/3.png">
+          </div>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Razer BlackWidow V3</h4>
+          <p class="text-xs text-neutral-500 mb-2">Teclado mecánico con switches Green táctiles y Chroma RGB.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
+            <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          </div>
+        </button>
+
+        <!-- Corsair TC100 -->
+        <button class="flex flex-col bg-content1 rounded-large border-2 border-transparent hover:border-[#4654CD]/30 shadow-medium p-4 text-left transition-all cursor-pointer h-full" type="button" onclick="toggleAccessory(this, 4)">
+          <div class="flex justify-between items-start mb-3">
+            <span class="bg-[#4654CD] text-white text-xs font-medium px-2 py-0.5 rounded">Sillón Gaming</span>
+            <div class="w-6 h-6 bg-[#22c55e] rounded-full flex items-center justify-center ml-auto check-icon transition-all duration-200 opacity-0 scale-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+          </div>
+          <div class="w-full h-24 mb-3 flex items-center justify-center bg-neutral-50 rounded-lg">
+            <img alt="Corsair TC100" class="max-h-20 max-w-full object-contain acc-dark" loading="lazy" src="accesorios gamer - imagenes/10.png"><img alt="Corsair TC100" class="max-h-20 max-w-full object-contain acc-light" loading="lazy" src="accesorios gamer - imagenes/9.png">
+          </div>
+          <h4 class="font-semibold text-sm text-neutral-800 mb-1">Corsair TC100</h4>
+          <p class="text-xs text-neutral-500 mb-2">Sillón gaming ergonómico con soporte lumbar y reposabrazos ajustable.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-[#4654CD] font-bold">Incluido en pack</span>
             <svg class="plus-icon w-5 h-5 text-neutral-400 transition-all duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </div>
         </button>
@@ -523,7 +593,8 @@ body {
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img alt="BaldeCash" class="logo-img" src="LOGO BALDE.PNG">
+        <img class="logo-img logo-dark" src="logo balde negro.png" alt="BaldeCash">
+<img class="logo-img logo-light" src="logo balde blanco.png" alt="BaldeCash">
         <p>Financiamiento para estudiantes</p>
         <div class="footer-socials">
           <a href="https://www.facebook.com/baldecash" target="_blank" class="social-circle" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -554,7 +625,13 @@ function toggleTheme() {
 (function() {
   try {
     var saved = localStorage.getItem('baldecash-theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      if (saved === 'light') {
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+      }
+    }
   } catch(e) {}
 })();
 
