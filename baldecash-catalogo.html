@@ -4633,16 +4633,18 @@ function updateRange() {
   let min = parseInt(sliderMin.value);
   let max = parseInt(sliderMax.value);
   if (min > max) { [sliderMin.value, sliderMax.value] = [max, min]; min = parseInt(sliderMin.value); max = parseInt(sliderMax.value); }
-  const rangeSpan = 400 - 40;
-  const pMin = ((min - 40) / rangeSpan) * 100;
-  const pMax = ((max - 40) / rangeSpan) * 100;
+  const sMin = parseInt(sliderMin.min);
+  const sMax = parseInt(sliderMin.max);
+  const rangeSpan = sMax - sMin || 1;
+  const pMin = ((min - sMin) / rangeSpan) * 100;
+  const pMax = ((max - sMin) / rangeSpan) * 100;
   rangeFill.style.left = pMin + '%';
   rangeFill.style.width = (pMax - pMin) + '%';
   rangeMinEl.textContent = 'S/' + min;
   rangeMaxEl.textContent = 'S/' + max;
 }
-if(sliderMin) if(sliderMin) sliderMin.addEventListener('input', updateRange);
-if(sliderMax) if(sliderMax) sliderMax.addEventListener('input', updateRange);
+if(sliderMin) sliderMin.addEventListener('input', function() { updateRange(); if (typeof applyFilters === 'function') applyFilters(); });
+if(sliderMax) sliderMax.addEventListener('input', function() { updateRange(); if (typeof applyFilters === 'function') applyFilters(); });
 
 // SVG icon templates
 const ICONS = {
@@ -5084,18 +5086,224 @@ function renderCard(p, idx) {
     </div>`;
 }
 
+// ===== FILTER ENGINE =====
+let filteredProducts = products.slice();
+
+function applyFilters() {
+  const minPrice = parseInt(sliderMin.value);
+  const maxPrice = parseInt(sliderMax.value);
+  const realMin = Math.min(minPrice, maxPrice);
+  const realMax = Math.max(minPrice, maxPrice);
+
+  // Group active filters by category
+  const filtersByCategory = {};
+  activeFiltersList.forEach(function(f) {
+    if (!filtersByCategory[f.category]) filtersByCategory[f.category] = [];
+    filtersByCategory[f.category].push(f.value);
+  });
+
+  // Badge label → product badge key mapping
+  const badgeMap = {
+    'Oferta': 'oferta',
+    'Más vendido': 'mas-vendido',
+    'Recomendado': 'recomendado',
+    'Cuota baja': 'cuota-baja'
+  };
+
+  // Uso label → product uso key mapping
+  const usoMap = {
+    'Estudios': 'estudios',
+    'Gaming': 'gaming',
+    'Diseño': 'diseño',
+    'Oficina': 'oficina',
+    'Programación': 'programacion'
+  };
+
+  // Resolution label → product res key mapping
+  const resMap = {
+    'HD': 'hd',
+    'Full HD': 'fhd',
+    'QHD': 'qhd',
+    '4K': '4k',
+    'WUXGA': 'wuxga',
+    'WQXGA': 'wqxga'
+  };
+
+  // Panel label → product panel key mapping
+  const panelMap = {
+    'IPS': 'ips',
+    'TN': 'tn',
+    'OLED': 'oled',
+    'VA': 'va'
+  };
+
+  // CPU label → product cpu key mapping
+  var cpuMap = {
+    'Intel Celeron': 'celeron',
+    'Intel Core i3': 'i3',
+    'Intel Core i5': 'i5',
+    'Intel Core i7': 'i7',
+    'Intel Core i9': 'i9',
+    'Intel Core 5': 'core5',
+    'AMD Ryzen 3': 'ryzen3',
+    'AMD Ryzen 5': 'ryzen5',
+    'AMD Ryzen 7': 'ryzen7',
+    'AMD Ryzen 9': 'ryzen9'
+  };
+
+  // RAM label → product ram value mapping
+  var ramMap = { '4 GB': '4', '8 GB': '8', '16 GB': '16', '32 GB': '32' };
+
+  // Storage label → product storage value mapping
+  var storageMap = { '256 GB': '256', '512 GB': '512', '1 TB': '1000' };
+
+  // Screen size label → product screen value
+  var screenMap = { '13"': '13', '14"': '14', '15.6"': '15.6', '16"': '16', '17"': '17' };
+
+  filteredProducts = products.filter(function(p) {
+    var price = parseInt(p.price);
+
+    // Price range filter (always active)
+    if (price < realMin || price > realMax) return false;
+
+    // Destacados filter (badges) — OR within category
+    if (filtersByCategory['Destacados']) {
+      var match = filtersByCategory['Destacados'].some(function(v) {
+        var key = badgeMap[v];
+        return key && p.badges.indexOf(key) >= 0;
+      });
+      if (!match) return false;
+    }
+
+    // Marca filter — OR within category
+    if (filtersByCategory['Marca']) {
+      var match = filtersByCategory['Marca'].some(function(v) {
+        return p.brand.toLowerCase() === v.toLowerCase();
+      });
+      if (!match) return false;
+    }
+
+    // Tipo filter
+    if (filtersByCategory['Tipo']) {
+      var match = filtersByCategory['Tipo'].some(function(v) {
+        return v.toLowerCase().indexOf(p.type) >= 0;
+      });
+      if (!match) return false;
+    }
+
+    // Uso filter — OR within category
+    if (filtersByCategory['Uso']) {
+      var match = filtersByCategory['Uso'].some(function(v) {
+        var key = usoMap[v];
+        return key && p.uso && p.uso.indexOf(key) >= 0;
+      });
+      if (!match) return false;
+    }
+
+    // Gama filter
+    if (filtersByCategory['Gama']) {
+      var gamaMap = {
+        'Económica': 'entrada',
+        'Estudiante': 'entrada',
+        'Profesional': 'alta',
+        'Creativa': 'alta',
+        'Gamer': 'media'
+      };
+      var match = filtersByCategory['Gama'].some(function(v) {
+        // Gamer matches media and alta tiers
+        if (v === 'Gamer') return p.tier === 'media' || p.tier === 'alta';
+        var key = gamaMap[v];
+        return key && p.tier === key;
+      });
+      if (!match) return false;
+    }
+
+    // Condición filter
+    if (filtersByCategory['Condición']) {
+      var condMap = { 'Nuevo': 'nuevo', 'Reacondicionado': 'reacondicionado' };
+      var match = filtersByCategory['Condición'].some(function(v) {
+        return condMap[v] && p.condition === condMap[v];
+      });
+      if (!match) return false;
+    }
+
+    // Advanced: RAM
+    if (filtersByCategory['RAM']) {
+      var match = filtersByCategory['RAM'].some(function(v) {
+        return ramMap[v] && p.ram === ramMap[v];
+      });
+      if (!match) return false;
+    }
+
+    // Advanced: Almacenamiento
+    if (filtersByCategory['Almacenamiento']) {
+      var match = filtersByCategory['Almacenamiento'].some(function(v) {
+        return storageMap[v] && p.storage === storageMap[v];
+      });
+      if (!match) return false;
+    }
+
+    // Advanced: Tamaño de pantalla
+    if (filtersByCategory['Tamaño de pantalla']) {
+      var match = filtersByCategory['Tamaño de pantalla'].some(function(v) {
+        return screenMap[v] && p.screen === screenMap[v];
+      });
+      if (!match) return false;
+    }
+
+    // Advanced: Resolución
+    if (filtersByCategory['Resolución']) {
+      var match = filtersByCategory['Resolución'].some(function(v) {
+        var key = resMap[v];
+        return key && p.res === key;
+      });
+      if (!match) return false;
+    }
+
+    // Advanced: Tipo de pantalla
+    if (filtersByCategory['Tipo de pantalla']) {
+      var match = filtersByCategory['Tipo de pantalla'].some(function(v) {
+        var key = panelMap[v];
+        return key && p.panel === key;
+      });
+      if (!match) return false;
+    }
+
+    // Advanced: Procesador
+    if (filtersByCategory['Procesador']) {
+      var match = filtersByCategory['Procesador'].some(function(v) {
+        var key = cpuMap[v];
+        return key && p.cpu === key;
+      });
+      if (!match) return false;
+    }
+
+    return true;
+  });
+
+  currentPage = 1;
+  renderProducts();
+  observeCards();
+}
+
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
-  const totalToShow = Math.min(currentPage * PRODUCTS_PER_PAGE, products.length);
-  const remaining = products.length - totalToShow;
+  const totalToShow = Math.min(currentPage * PRODUCTS_PER_PAGE, filteredProducts.length);
 
   // Pack featured card as first item (dynamic based on visible products)
-  let html = renderPackFeaturedCard(products.slice(0, totalToShow));
+  let html = renderPackFeaturedCard(filteredProducts.slice(0, totalToShow));
 
   for (let i = 0; i < totalToShow; i++) {
-    html += renderCard(products[i], i);
+    html += renderCard(filteredProducts[i], i);
   }
 
+  // No results message
+  if (filteredProducts.length === 0) {
+    html += '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">' +
+      '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto 16px;display:block;opacity:0.4;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>' +
+      '<p style="font-size:18px;font-weight:600;margin-bottom:8px;">No se encontraron equipos</p>' +
+      '<p style="font-size:14px;">Intenta ajustar los filtros para ver más resultados.</p></div>';
+  }
 
   grid.innerHTML = html;
 }
@@ -5110,6 +5318,16 @@ function loadMore() {
     scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
+
+// Update slider range limits based on actual product prices
+(function() {
+  var prices = products.map(function(p) { return parseInt(p.price); });
+  var minP = Math.min.apply(null, prices);
+  var maxP = Math.max.apply(null, prices);
+  if (sliderMin) { sliderMin.min = minP; sliderMin.max = maxP; sliderMin.value = minP; }
+  if (sliderMax) { sliderMax.min = minP; sliderMax.max = maxP; sliderMax.value = maxP; }
+  updateRange();
+})();
 
 renderProducts();
 
@@ -5248,6 +5466,10 @@ function updateSidebarCleanBtn() {
 function clearAllFilters() {
   activeFiltersList.forEach(f => { if (f.el) f.el.classList.remove('active'); });
   activeFiltersList = [];
+  // Reset price sliders
+  if (sliderMin) { sliderMin.value = sliderMin.min; }
+  if (sliderMax) { sliderMax.value = sliderMax.max; }
+  updateRange();
   updateActiveFilters();
 }
 
@@ -5276,6 +5498,8 @@ function updateActiveFilters() {
       updateActiveFilters();
     });
   });
+  // Apply filters whenever active filters change
+  if (typeof applyFilters === 'function') applyFilters();
 }
 
 afClearBtn.addEventListener('click', clearAllFilters);
@@ -5321,12 +5545,15 @@ document.querySelectorAll('.brand-item').forEach(item => {
   });
 });
 
-// Bind uso items
+// Bind uso items (main Uso recomendado + Condición + Advanced filters)
 document.querySelectorAll('.uso-item').forEach(item => {
   item.addEventListener('click', function() {
     const label = this.querySelector('.uso-label');
     const text = label ? label.textContent.trim() : '';
-    toggleFilter(this, 'Uso', text);
+    const section = this.closest('.filter-section');
+    const header = section ? section.querySelector('.filter-header h3') : null;
+    const cat = header ? header.textContent.replace(/ℹ️/g,'').trim() : 'Uso';
+    toggleFilter(this, cat, text);
   });
 });
 
