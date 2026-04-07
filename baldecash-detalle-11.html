@@ -834,7 +834,7 @@ body::before {
 <script>
 (function(){
   var thumbOffset = 0;
-  var TOTAL = 7;
+  var TOTAL = 9;
   function getThumbW() {
     var strip = document.getElementById('thumbStrip');
     if (!strip || !strip.children[0]) return 80;
@@ -845,7 +845,7 @@ body::before {
     if (!strip || !strip.parentElement) return 0;
     var thumbW = getThumbW();
     var viewportW = strip.parentElement.offsetWidth;
-    var visible = Math.floor(viewportW / thumbW);
+    var visible = Math.ceil(viewportW / thumbW) - 1;
     return Math.max(0, TOTAL - visible);
   }
   function applyThumbOffset() {
